@@ -1,5 +1,5 @@
 {
-  "name": "allnow-local-auth",
+  "name": "allnow-app",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "react-dom": "18.3.1",
     "tailwindcss": "3.4.4",
     "postcss": "8.4.38",
-    "autoprefixer": "10.4.19"
+    "autoprefixer": "10.4.19",
+    "lucide-react": "0.468.0"
   }
 }
