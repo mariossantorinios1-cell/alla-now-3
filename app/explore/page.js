@@ -1,1 +1,20 @@
-export default function Explore(){ const vids = JSON.parse(localStorage.getItem('allnow_videos')||'[]'); return (<div className='p-6 max-w-5xl mx-auto'><h2 className='text-2xl'>Explore</h2><ul>{vids.map(v=> <li key={v.id}>{v.name}</li>)}</ul></div>) }
+'use client'
+
+import { useEffect, useState } from 'react'
+
+export default function Explore() {
+  const [saved, setSaved] = useState([])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const data = localStorage.getItem('savedExplore')
+      if (data) setSaved(JSON.parse(data))
+    }
+  }, [])
+
+  return (
+    <div className="p-4">
+      <h1 className="text-xl font-bold">Explore</h1>
+    </div>
+  )
+}
