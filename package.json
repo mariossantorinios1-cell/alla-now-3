@@ -1,5 +1,5 @@
 {
-  "name": "allnow-app",
+  "name": "allnow-local-auth",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,12 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "10.4.19",
+    "firebase": "10.7.2",
+    "lucide-react": "0.292.0",
     "next": "14.2.3",
+    "postcss": "8.4.38",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "tailwindcss": "3.4.4",
-    "postcss": "8.4.38",
-    "autoprefixer": "10.4.19",
-    "lucide-react": "0.468.0"
+    "tailwindcss": "3.4.10"
   }
 }
