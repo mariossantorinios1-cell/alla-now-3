@@ -1,2 +1,20 @@
-import Link from 'next/link'
-export default function Gaming(){ const sample=[{id:'1',title:'Top Clips'},{id:'2',title:'Indie'}]; const vids = JSON.parse(localStorage.getItem('allnow_videos')||'[]'); return (<div className='p-6 max-w-5xl mx-auto'><h2 className='text-2xl mb-4'>Gaming Hub</h2><ul className='space-y-2'>{vids.map(v=> <li key={v.id} className='p-2 bg-gray-800 rounded'><Link href={'/video/'+v.id}><a>{v.name}</a></Link></li>)}</ul></div>) }
+'use client'
+
+import { useEffect, useState } from 'react'
+
+export default function Gaming() {
+  const [savedGames, setSavedGames] = useState([])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const data = localStorage.getItem('savedGames')
+      if (data) setSavedGames(JSON.parse(data))
+    }
+  }, [])
+
+  return (
+    <div className="p-4">
+      <h1 className="text-xl font-bold">Gaming</h1>
+    </div>
+  )
+}
