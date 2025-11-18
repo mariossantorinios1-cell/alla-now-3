@@ -1,0 +1,1 @@
+export default function Explore(){ const vids = JSON.parse(localStorage.getItem('allnow_videos')||'[]'); return (<div className='p-6 max-w-5xl mx-auto'><h2 className='text-2xl'>Explore</h2><ul>{vids.map(v=> <li key={v.id}>{v.name}</li>)}</ul></div>) }

@@ -1,38 +1,26 @@
-# AllNow - Next.js starter (scaffold)
+# AllNow - Local Auth ZIP (No external services)
 
-This repository is a scaffold for the **AllNow** platform (Next.js + Tailwind + Firebase placeholders).
+This version uses **local browser storage** for authentication, profiles, chat, tracking and simple uploads.
+It requires **no Supabase or Firebase keys** — drop it on Vercel and deploy immediately.
 
-## What is included
-- Next.js app structure (pages router)
-- Tailwind CSS setup
-- Firebase placeholders for Auth / Firestore / Realtime (chat)
-- Pages: Home, Profile, Video, Live, Gaming
-- Components: Header, Footer, Player, ChatBox
-- Placeholders for Google AdSense / Analytics and Stripe (donations)
-- README with deployment notes and env vars to set
-
-## Important: Environment variables to set (Vercel)
-Create these environment variables before deploying:
-- NEXT_PUBLIC_FIREBASE_API_KEY
-- NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-- NEXT_PUBLIC_FIREBASE_PROJECT_ID
-- NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-- NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-- NEXT_PUBLIC_FIREBASE_APP_ID
-- NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
-- NEXT_PUBLIC_ADSENSE_CLIENT (your AdSense client id)
-- STRIPE_SECRET_KEY (for server-side if you integrate Stripe)
-- NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+## Features included
+- Local Auth (register/login stored in localStorage)
+- Profiles (stored in localStorage)
+- Real-time-ish Chat (in-memory + localStorage, updates on send)
+- Video feed + upload (uses object URLs, stored in localStorage index)
+- Gaming discovery page
+- Donations button (placeholder, Stripe-ready UI)
+- Notifications component (placeholder)
+- Music player (simple client-side player)
+- Ads placeholders and local tracking for clicks/views
+- Tailwind CSS, Next.js 14 app-router
+- All pages tested for no conflicts (no pages/ folder)
 
 ## How to run locally
-1. Install dependencies: `npm install`
-2. Create a `.env.local` with the environment variables above.
-3. Run dev server: `npm run dev`
+1. `npm install`
+2. `npm run dev`
+3. Open http://localhost:3000
 
-## Deployment to Vercel
-1. Create a new Vercel project from this repo.
-2. Add the environment variables in the Vercel dashboard.
-3. Deploy — the project is configured to run on Vercel.
-
----
-This scaffold contains placeholders (no secret keys included). Replace the placeholders with your actual keys and test payments/ads in sandbox before going live.
+## Notes
+- This is for fast deployment and testing. For production, migrate auth/storage to Supabase or Firebase.
+- If Vercel build shows issues, send build logs and I'll patch immediately.

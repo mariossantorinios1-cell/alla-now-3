@@ -1,0 +1,2 @@
+import Link from 'next/link'
+export default function Gaming(){ const sample=[{id:'1',title:'Top Clips'},{id:'2',title:'Indie'}]; const vids = JSON.parse(localStorage.getItem('allnow_videos')||'[]'); return (<div className='p-6 max-w-5xl mx-auto'><h2 className='text-2xl mb-4'>Gaming Hub</h2><ul className='space-y-2'>{vids.map(v=> <li key={v.id} className='p-2 bg-gray-800 rounded'><Link href={'/video/'+v.id}><a>{v.name}</a></Link></li>)}</ul></div>) }
