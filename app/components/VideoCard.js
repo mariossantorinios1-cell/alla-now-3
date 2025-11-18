@@ -3,24 +3,25 @@
 import Link from "next/link";
 
 export default function VideoCard({ video }) {
-  if (!video) return null;
-
   return (
-    <Link
-      href={`/video/${video.id}`}
-      className="block bg-black/40 border border-white/10 rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-200"
-    >
-      <div className="w-full aspect-video bg-black">
+    <Link href={`/video/${video.id}`}>
+      <div className="bg-[#111] rounded-xl overflow-hidden cursor-pointer hover:scale-[1.02] transition-all">
+        
         <img
-          src={video.thumbnail || "/no-thumbnail.png"}
+          src={video.thumbnail}
           alt={video.title}
-          className="w-full h-full object-cover"
+          className="w-full h-48 object-cover"
         />
-      </div>
 
-      <div className="p-3 text-white">
-        <h3 className="text-lg font-semibold truncate">{video.title}</h3>
-        <p className="text-sm opacity-60 truncate">{video.channel || "Unknown"}</p>
+        <div className="p-3">
+          <h2 className="text-white font-semibold text-sm line-clamp-2">
+            {video.title}
+          </h2>
+
+          <p className="text-gray-400 text-xs mt-1">
+            {video.views} views • {video.uploaded}
+          </p>
+        </div>
       </div>
     </Link>
   );
