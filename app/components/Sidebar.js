@@ -1,36 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Home, Compass, Gamepad2, User } from "lucide-react";
+import {
+  Home,
+  Search,
+  Video,
+  User,
+  Gamepad2,
+  Upload,
+} from "lucide-react";
 
 export default function Sidebar() {
-  const pathname = usePathname();
-
-  const menu = [
-    { name: "Home", icon: <Home size={20} />, href: "/" },
-    { name: "Explore", icon: <Compass size={20} />, href: "/explore" },
-    { name: "Gaming", icon: <Gamepad2 size={20} />, href: "/gaming" },
-    { name: "Profile", icon: <User size={20} />, href: "/profile/me" },
-  ];
-
   return (
-    <aside className="w-20 sm:w-64 bg-black text-white h-screen flex flex-col p-3 border-r border-gray-800 fixed">
-      <h1 className="text-2xl font-bold mb-6 sm:block hidden">ALLNOW</h1>
+    <div className="w-60 h-screen bg-black text-white p-6 flex flex-col gap-6">
+      <Link href="/" className="flex items-center gap-3 text-lg">
+        <Home size={22} />
+        Home
+      </Link>
 
-      <nav className="flex flex-col gap-3">
-        {menu.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`flex items-center gap-3 p-3 rounded-xl hover:bg-gray-800 transition 
-              ${pathname === item.href ? "bg-gray-800" : ""}`}
-          >
-            {item.icon}
-            <span className="hidden sm:inline">{item.name}</span>
-          </Link>
-        ))}
-      </nav>
-    </aside>
+      <Link href="/explore" className="flex items-center gap-3 text-lg">
+        <Search size={22} />
+        Explore
+      </Link>
+
+      <Link href="/video/upload" className="flex items-center gap-3 text-lg">
+        <Upload size={22} />
+        Upload Video
+      </Link>
+
+      <Link href="/gaming" className="flex items-center gap-3 text-lg">
+        <Gamepad2 size={22} />
+        Gaming
+      </Link>
+
+      <Link href="/profile/1" className="flex items-center gap-3 text-lg">
+        <User size={22} />
+        Profile
+      </Link>
+    </div>
   );
 }
