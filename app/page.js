@@ -1,7 +1,11 @@
 "use client";
 
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import ThreeHero from "./components/ThreeHero";
+
 export default function Home() {
-  // Dummy videos (προσωρινά – θα τα κάνουμε dynamic)
+  // Dummy videos (προσωρινά)
   const videos = [
     {
       title: "Amazing Gameplay Moments",
@@ -30,48 +34,47 @@ export default function Home() {
   ];
 
   return (
-    <div style={{
-      padding: "80px 20px 20px 240px",
-      background: "#0a0a0a",
-      minHeight: "100vh",
-      color: "#fff"
-    }}>
-      
-      <h2 style={{ fontSize: "26px", marginBottom: "20px" }}>Recommended</h2>
+    <div style={{ minHeight: "100vh", background: "#000", color: "#fff" }}>
+      <Navbar />
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-        gap: "20px"
-      }}>
-        {videos.map((video, index) => (
-          <div key={index} style={{
-            background: "#111",
-            borderRadius: "10px",
-            overflow: "hidden",
-            cursor: "pointer",
-            transition: "0.2s"
-          }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.03)"}
-            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-          >
-            <img
-              src={video.thumbnail}
-              alt="thumbnail"
-              style={{ width: "100%", height: "150px", objectFit: "cover" }}
-            />
+      <div style={{ display: "flex", paddingTop: 80 }}>
+        <Sidebar />
 
-            <div style={{ padding: "12px" }}>
-              <h3 style={{ fontSize: "16px", marginBottom: "6px" }}>
-                {video.title}
-              </h3>
-              <p style={{ fontSize: "13px", color: "#aaa" }}>{video.views}</p>
-              <p style={{ fontSize: "13px", color: "#777" }}>{video.author}</p>
+        <main style={{ flex: 1, padding: "24px 40px" }}>
+          {/* 3D Hero */}
+          <ThreeHero />
+
+          {/* Feed */}
+          <section style={{ marginTop: 28 }}>
+            <h2 style={{ fontSize: 22, marginBottom: 12 }}>Recommended</h2>
+
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+              gap: 20
+            }}>
+              {videos.map((v, i) => (
+                <article key={i} style={{
+                  background: "#0f0f0f",
+                  borderRadius: 12,
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "transform .18s"
+                }}
+                  onMouseEnter={e => e.currentTarget.style.transform = "translateY(-6px)"}
+                  onMouseLeave={e => e.currentTarget.style.transform = "translateY(0px)"}
+                >
+                  <img src={v.thumbnail} alt={v.title} style={{ width: "100%", height: 150, objectFit: "cover" }} />
+                  <div style={{ padding: 12 }}>
+                    <h3 style={{ margin: 0, fontSize: 15 }}>{v.title}</h3>
+                    <p style={{ marginTop: 6, color: "#aaa", fontSize: 13 }}>{v.views} • {v.author}</p>
+                  </div>
+                </article>
+              ))}
             </div>
-          </div>
-        ))}
+          </section>
+        </main>
       </div>
-
     </div>
   );
 }
