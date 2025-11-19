@@ -1,14 +1,12 @@
 export const metadata = {
   title: "AllNow",
-  description: "The ultimate social + video platform",
+  description: "The best next-gen platform",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
