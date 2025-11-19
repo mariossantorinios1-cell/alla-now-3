@@ -1,40 +1,35 @@
 "use client";
 
-export default function Sidebar() {
-  return (
-    <div
-      style={{
-        width: "240px",
-        background: "#111",
-        color: "#fff",
-        padding: "20px",
-        height: "100vh",
-      }}
-    >
-      <h2 style={{ marginBottom: "20px" }}>AllNow</h2>
+import { Home, Users, Gamepad2, Video } from "react-icons/fa";
 
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        <li style={{ marginBottom: "12px" }}>
-          <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
-            Home
-          </a>
-        </li>
-        <li style={{ marginBottom: "12px" }}>
-          <a href="/explore" style={{ color: "#fff", textDecoration: "none" }}>
-            Explore
-          </a>
-        </li>
-        <li style={{ marginBottom: "12px" }}>
-          <a href="/gaming" style={{ color: "#fff", textDecoration: "none" }}>
-            Gaming
-          </a>
-        </li>
-        <li style={{ marginBottom: "12px" }}>
-          <a href="/upload" style={{ color: "#fff", textDecoration: "none" }}>
-            Upload
-          </a>
-        </li>
-      </ul>
+const Sidebar = () => {
+  const menu = [
+    { name: "Home", icon: <Home />, href: "/" },
+    { name: "Explore", icon: <Users />, href: "/explore" },
+    { name: "Gaming", icon: <Gamepad2 />, href: "/gaming" },
+    { name: "Videos", icon: <Video />, href: "/video" }
+  ];
+
+  return (
+    <div style={{ width: "230px", padding: "20px" }}>
+      {menu.map((item) => (
+        <a
+          key={item.name}
+          href={item.href}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            padding: "12px 0",
+            fontSize: "18px"
+          }}
+        >
+          {item.icon}
+          <span>{item.name}</span>
+        </a>
+      ))}
     </div>
   );
-}
+};
+
+export default Sidebar;
