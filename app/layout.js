@@ -1,8 +1,8 @@
-import './globals.css';
+import "./globals.css";
 
 export const metadata = {
-  title: 'AllNow',
-  description: 'AllNow Platform',
+  title: "AllNow",
+  description: "All-in-one social platform",
 };
 
 export default function RootLayout({ children }) {
