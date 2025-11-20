@@ -1,14 +1,14 @@
-import "./globals.css";
-
 export const metadata = {
   title: "AllNow",
-  description: "All-in-one social platform",
+  description: "The ultimate social + video + gaming platform",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-black text-white">
+        {children}
+      </body>
     </html>
   );
 }
