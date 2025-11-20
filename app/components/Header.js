@@ -1,21 +1,29 @@
-"use client";
-
-import Link from "next/link";
-
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full h-16 bg-black/80 backdrop-blur-md border-b border-white/10 flex items-center px-4 z-50">
-      <nav className="flex w-full justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-white">
-          AllNow
-        </Link>
+    <header
+      style={{
+        width: "100%",
+        height: "70px",
+        backgroundColor: "#111",
+        color: "#fff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 20px",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1000,
+        borderBottom: "1px solid #222",
+      }}
+    >
+      <div style={{ fontSize: "24px", fontWeight: "bold" }}>AllNow</div>
 
-        <div className="flex gap-4 text-white">
-          <Link href="/explore">Explore</Link>
-          <Link href="/gaming">Gaming</Link>
-          <Link href="/upload">Upload</Link>
-          <Link href="/auth">Login</Link>
-        </div>
+      <nav style={{ display: "flex", gap: "20px" }}>
+        <a href="/" style={{ color: "#fff", textDecoration: "none" }}>Home</a>
+        <a href="/videos" style={{ color: "#fff", textDecoration: "none" }}>Videos</a>
+        <a href="/live" style={{ color: "#fff", textDecoration: "none" }}>Live</a>
+        <a href="/gaming" style={{ color: "#fff", textDecoration: "none" }}>Gaming</a>
       </nav>
     </header>
   );
