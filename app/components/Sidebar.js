@@ -1,55 +1,93 @@
 "use client";
-import { FaHome, FaFire, FaStar, FaFilm, FaUserFriends, FaGamepad } from "react-icons/fa";
+
+import React from "react";
+import { 
+  Home, Flame, PlayCircle, Gamepad2, Cpu, 
+  Tv, Compass, Bookmark, Settings
+} from "lucide-react";
 
 export default function Sidebar() {
-  return (
-    <div style={{
-      width: "220px",
-      background: "#000",
-      color: "#fff",
-      height: "100vh",
-      position: "fixed",
-      top: "60px",
-      left: 0,
-      paddingTop: "20px",
-      borderRight: "1px solid #222",
-      display: "flex",
-      flexDirection: "column",
-      zIndex: 90
-    }}>
-      
-      {/** MENU ITEM COMPONENT */}
-      {[
-        { icon: <FaHome />, label: "Home" },
-        { icon: <FaFire />, label: "Trending" },
-        { icon: <FaStar />, label: "Top Rated" },
-        { icon: <FaFilm />, label: "Videos" },
-        { icon: <FaUserFriends />, label: "Community" },
-        { icon: <FaGamepad />, label: "Gaming" },
-      ].map((item, index) => (
-        <div
-          key={index}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "15px",
-            padding: "14px 20px",
-            cursor: "pointer",
-            transition: "0.2s ease",
-            fontSize: "16px"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#111";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-          }}
-        >
-          <div style={{ fontSize: "20px" }}>{item.icon}</div>
-          <span>{item.label}</span>
-        </div>
-      ))}
+  const menu = [
+    { icon: <Home size={20} />, label: "Home" },
+    { icon: <Flame size={20} />, label: "Trending" },
+    { icon: <PlayCircle size={20} />, label: "Videos" },
+    { icon: <Tv size={20} />, label: "Live" },
+    { icon: <Compass size={20} />, label: "Explore" },
+    { icon: <Bookmark size={20} />, label: "Saved" },
+  ];
 
+  const gaming = [
+    { icon: <Gamepad2 size={20} />, label: "Games" },
+    { icon: <Tv size={20} />, label: "Game Streams" },
+  ];
+
+  const ai = [
+    { icon: <Cpu size={20} />, label: "AI Tools" },
+    { icon: <Cpu size={20} />, label: "ChatGPT" },
+  ];
+
+  return (
+    <aside 
+      style={{
+        width: 240,
+        height: "100vh",
+        background: "#0d0d0d",
+        borderRight: "1px solid #222",
+        padding: "20px 10px",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        overflowY: "auto"
+      }}
+    >
+
+      {/* MAIN MENU */}
+      <Section title="Menu" items={menu} />
+
+      {/* GAMING */}
+      <Section title="Gaming" items={gaming} />
+
+      {/* AI FEATURES */}
+      <Section title="AI" items={ai} />
+
+      {/* SETTINGS */}
+      <div style={{ marginTop: 30 }}>
+        <Item icon={<Settings size={20} />} label="Settings" />
+      </div>
+    </aside>
+  );
+}
+
+function Section({ title, items }) {
+  return (
+    <div style={{ marginBottom: 30 }}>
+      <p style={{ color: "#666", fontSize: 12, marginLeft: 10, marginBottom: 8 }}>
+        {title}
+      </p>
+      {items.map((x, i) => (
+        <Item key={i} icon={x.icon} label={x.label} />
+      ))}
+    </div>
+  );
+}
+
+function Item({ icon, label }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        padding: "10px 12px",
+        borderRadius: 8,
+        cursor: "pointer",
+        color: "#ddd"
+      }}
+      onMouseEnter={e => e.currentTarget.style.background = "#1a1a1a"}
+      onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+    >
+      {icon}
+      <span>{label}</span>
     </div>
   );
 }
