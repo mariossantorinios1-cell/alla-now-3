@@ -1,43 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { Home, Search, User } from "lucide-react";
 
-export default function Navbar() {
+export default function Sidebar() {
   return (
-    <nav className="w-full h-16 bg-black text-white flex items-center justify-between px-6 shadow-lg">
-      
-      {/* Logo */}
-      <Link href="/" className="text-2xl font-bold">
-        AllNow
-      </Link>
+    <div className="w-64 h-screen bg-neutral-900 text-white p-6 flex flex-col gap-6">
+      <h1 className="text-3xl font-bold">AllNow</h1>
 
-      {/* Search */}
-      <div className="flex items-center bg-zinc-800 px-3 py-1 rounded-full w-72">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="bg-transparent outline-none text-sm w-full"
-        />
-      </div>
-
-      {/* Profile / Buttons */}
-      <div className="flex items-center gap-4">
-        <Link href="/upload" className="hover:text-gray-300">
-          ⬆️ Upload
+      <nav className="flex flex-col gap-4">
+        <Link href="/" className="flex items-center gap-3 text-lg hover:text-blue-400">
+          <Home size={22} /> Home
         </Link>
 
-        <Link href="/messages" className="hover:text-gray-300">
-          💬 Messages
+        <Link href="/search" className="flex items-center gap-3 text-lg hover:text-blue-400">
+          <Search size={22} /> Search
         </Link>
 
-        <Link href="/notifications" className="hover:text-gray-300">
-          🔔 Notifications
+        <Link href="/profile" className="flex items-center gap-3 text-lg hover:text-blue-400">
+          <User size={22} /> Profile
         </Link>
-
-        <Link href="/profile" className="hover:text-gray-300">
-          👤 Profile
-        </Link>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
