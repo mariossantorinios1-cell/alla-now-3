@@ -1,3 +1,5 @@
+import Header from "./components/Header";
+
 export const metadata = {
   title: "AllNow",
   description: "The best social + video + streaming platform",
@@ -15,7 +17,10 @@ export default function RootLayout({ children }) {
           overflowX: "hidden",
         }}
       >
-        {children}
+        <Header />
+        <main style={{ marginTop: "80px", padding: "20px" }}>
+          {children}
+        </main>
       </body>
     </html>
   );
