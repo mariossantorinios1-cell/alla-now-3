@@ -1,60 +1,65 @@
 export default function Home() {
-  const posts = [
+  const videos = [
     {
       id: 1,
-      user: "AllNow Official",
-      avatar: "https://i.pravatar.cc/150?img=3",
-      image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
-      likes: 154,
-      comments: 31,
-      description: "Καλώς ήρθατε στο AllNow! 🔥"
+      title: "Epic Gameplay Highlights",
+      views: "1.2M views",
+      thumbnail: "https://picsum.photos/500/300?random=1",
     },
     {
       id: 2,
-      user: "Gaming World",
-      avatar: "https://i.pravatar.cc/150?img=7",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420",
-      likes: 412,
-      comments: 89,
-      description: "TOP gaming moments της ημέρας! 🎮"
+      title: "Top 10 Fails of the Week",
+      views: "845K views",
+      thumbnail: "https://picsum.photos/500/300?random=2",
     },
     {
       id: 3,
-      user: "Travel Live",
-      avatar: "https://i.pravatar.cc/150?img=11",
-      image: "https://images.unsplash.com/photo-1470770903676-69b98201ea1c",
-      likes: 233,
-      comments: 54,
-      description: "Ζωντανές εικόνες από όλο τον κόσμο! 🌍"
-    }
+      title: "Live: Pro Tournament",
+      views: "LIVE NOW",
+      thumbnail: "https://picsum.photos/500/300?random=3",
+    },
+    {
+      id: 4,
+      title: "New Game Review",
+      views: "420K views",
+      thumbnail: "https://picsum.photos/500/300?random=4",
+    },
   ];
 
   return (
-    <main className="p-4 max-w-xl mx-auto space-y-6">
-      {posts.map((post) => (
-        <div key={post.id} className="bg-white rounded-xl shadow p-3">
-          <div className="flex items-center gap-3 mb-2">
-            <img
-              src={post.avatar}
-              alt="avatar"
-              className="w-10 h-10 rounded-full"
-            />
-            <span className="font-semibold">{post.user}</span>
-          </div>
-
+    <div
+      style={{
+        width: "100%",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+        gap: "20px",
+      }}
+    >
+      {videos.map((video) => (
+        <div
+          key={video.id}
+          style={{
+            backgroundColor: "#111",
+            borderRadius: "12px",
+            overflow: "hidden",
+            cursor: "pointer",
+            transition: "0.2s",
+          }}
+        >
           <img
-            src={post.image}
-            alt="post"
-            className="w-full rounded-xl object-cover"
+            src={video.thumbnail}
+            alt={video.title}
+            style={{ width: "100%", height: "auto" }}
           />
 
-          <div className="mt-3">
-            <p className="font-semibold">{post.likes} likes ❤️</p>
-            <p className="text-sm text-gray-700">{post.description}</p>
-            <p className="text-gray-500 text-sm">💬 {post.comments} comments</p>
+          <div style={{ padding: "10px" }}>
+            <h3 style={{ margin: 0, fontSize: "18px" }}>{video.title}</h3>
+            <p style={{ margin: 0, color: "#aaa", fontSize: "14px" }}>
+              {video.views}
+            </p>
           </div>
         </div>
       ))}
-    </main>
+    </div>
   );
 }
