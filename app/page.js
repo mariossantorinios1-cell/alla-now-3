@@ -3,27 +3,19 @@ import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex h-screen bg-black text-white">
-      
-      {/* Left Sidebar */}
+    <div className="flex">
       <Sidebar />
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        
-        {/* Top Navbar */}
+      <div className="flex-1">
         <Navbar />
 
-        {/* Page Content */}
-        <div className="p-6">
-          <h1 className="text-4xl font-bold mb-4">Welcome to AllNow</h1>
-          <p className="text-lg text-gray-300">
-            Το site λειτουργεί — είμαστε έτοιμοι να αρχίσουμε να χτίζουμε τις κύριες λειτουργίες (video, live, feed, posts, gaming κλπ).
+        <main className="p-6 text-white">
+          <h1 className="text-4xl font-bold">AllNow is Live</h1>
+          <p className="mt-4 text-lg text-neutral-300">
+            Welcome to your new platform.
           </p>
-        </div>
-
+        </main>
       </div>
-
     </div>
   );
 }
