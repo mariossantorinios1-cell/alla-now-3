@@ -1,6 +1,8 @@
+import './globals.css';
+
 export const metadata = {
-  title: "AllNow",
-  description: "The best next-gen platform",
+  title: 'AllNow',
+  description: 'AllNow Platform',
 };
 
 export default function RootLayout({ children }) {
